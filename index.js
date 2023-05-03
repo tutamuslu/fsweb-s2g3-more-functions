@@ -15,10 +15,23 @@
   örnek input:  ""
   örnek output: ""
 */
-
-function dosyaAdiniBul(/* kodlar buraya */) {
-  // kodlar buraya
+const dosyaAdi = "C:/Users/johnsmith/Music/Beethoven_5.mp3"
+function dosyaAdiniBul(path) {
+ if (path == ""){
+  return ""
+ }
+if(path.indexOf("/") == -1){
+return path
 }
+  const sonuc = path.split("/")[4]
+  if (sonuc.length == 0){
+    return path
+  } else {
+  return sonuc
+}
+}
+
+console.log(dosyaAdiniBul(dosyaAdi));
 
 /*
   GÖREV 2
@@ -38,9 +51,17 @@ function dosyaAdiniBul(/* kodlar buraya */) {
   örnek output: 104
 */
 
-function ortalamaBul(/* kodlar buraya */) {
-  // kodlar buraya
+function ortalamaBul(sayilar) {
+  if (sayilar.length == 0) {
+  return null
 }
+  const toplam = sayilar.reduce((total, sayi) => {
+	return total + sayi;
+}, 0);
+return toplam / sayilar.length
+}
+console.log(ortalamaBul([109, 216, 288, 143, 71, 185, -278, 194, 5]))
+
 
 /*
   GÖREV 3
@@ -62,8 +83,16 @@ function ortalamaBul(/* kodlar buraya */) {
   örnek output: [109, 216, 288, 143, 185, 194]
 */
 
-function ortalamadanBuyukleriBul(/* kodlar buraya */) {
-  // kodlar buraya
+function ortalamadanBuyukleriBul(sayilar, ortalamaBul) {
+if (sayilar.length == 0) {
+  return null
+}
+
+  const aritmetikOrtalama = ortalamaBul(sayilar)
+  return sayilar.filter((sayi) => {
+    return sayi >= aritmetikOrtalama
+
+  } )
 }
 
 /* !!!! Burdan aşağısını değiştirmeyin !!!! */
